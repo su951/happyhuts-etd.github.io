@@ -1,1 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Huts</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="logo">Happy Huts</div>
+    <ul class="menu">
+      <li class="dropdown">
+        <a href="#">Stay Cozy</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Welcome Nest</a></li>
+          <li><a href="#">Our Huts</a></li>
+          <li><a href="#">Book My Escape</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#">Discover</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Hidden Gems</a></li>
+          <li><a href="#">The Escape List</a></li>
+          <li><a href="#">Wander View</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a href="#">Connect</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Happy Tales</a></li>
+          <li><a href="#">Say Hello</a></li>
+          <li><a href="#">Quick Answers</a></li>
+        </ul>
+      </li>
+
+      <!-- My Space (hidden by default) -->
+      <li class="dropdown" id="my-space" style="display: none;">
+        <a href="#">My Space</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">My Getaways</a></li>
+          <li><a href="#">Wishlist</a></li>
+        </ul>
+      </li>
+
+      <!-- Login Button -->
+      <li><a href="#" class="login-btn" id="loginBtn">Login</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section with Video Background -->
+  <section class="hero">
+    <video autoplay muted loop playsinline class="hero-video">
+      <source src="hero.mp4" type="video/mp4" />
+      Your browser does not support HTML5 video.
+    </video>
+    <div class="hero-content">
+      <h1>Welcome to Happy Huts</h1>
+      <p>Your peaceful holiday escape awaits 🌴</p>
+    </div>
+  </section>
+
+  <!-- Dummy content for scroll effect -->
+  <div style="height: 1200px; background-color: #F3EAC2;"></div>
+
+  <!-- JavaScript -->
+  <script>
+    const navbar = document.getElementById('navbar');
+    const loginBtn = document.getElementById('loginBtn');
+    const mySpace = document.getElementById('my-space');
+
+    // Scroll effect for navbar
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Login toggle
+    let loggedIn = false;
+    loginBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      loggedIn = !loggedIn;
+
+      if (loggedIn) {
+        mySpace.style.display = 'block';
+        loginBtn.textContent = 'Logout';
+      } else {
+        mySpace.style.display = 'none';
+        loginBtn.textContent = 'Login';
+      }
+    });
+  </script>
+
+</body>
+</html>
+
 
