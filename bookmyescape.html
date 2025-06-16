@@ -1,0 +1,45 @@
+code an embedded map on a web page using the Leaflet library.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embedded Map Example</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        #map {
+            height: 500px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Embedded Map Example</h1>
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-360-view/dist/leaflet-360-view.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-360-view/dist/leaflet-360-view.css" />
+    <script src="map.js"></script>
+    <script>
+        // Initialize the map
+        var map = L.map('map').setView([51.505, -0.09], 13);
+
+        // Add a tile layer to the map
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Add a marker to the map
+        var marker = L.marker([51.505, -0.09]).addTo(map);
+        marker.bindPopup('<b>Hello world!</b><br>I am a popup.').openPopup();
+    </script>
+</body>
+here i have to add responsiveness to this map so that it shows the available rental properties within an area and
+allow us to rent it and pay just like airbnb.
+add backend database to provide data for the interactive map option.
+also use 360 degree property view option.
+
+
+</html>
